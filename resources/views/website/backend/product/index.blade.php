@@ -3,7 +3,7 @@
 <div class="col-md-12 col-sm-12 ">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Product Category</h2>
+        <h2>Product</h2>
         <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>
@@ -21,14 +21,19 @@
               <div class="col-sm-12">
                 <div class="card-box table-responsive">
 
-                <a href="{{route('productcategory.create')}}" class="btn btn-success">Add Category</a>
+                <a href="{{route('product.create')}}" class="btn btn-success">Add Category</a>
 
 
         <div id="datatable-responsive_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="datatable-responsive_length"><label>Show <select name="datatable-responsive_length" aria-controls="datatable-responsive" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-6"><div id="datatable-responsive_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable-responsive"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline" cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%;">
           <thead>
             <tr role="row">
                 <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 77px;" aria-sort="ascending" aria-label="First name: activate to sort column descending">Product Category</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 77px;" aria-sort="ascending" aria-label="First name: activate to sort column descending">Product Name</th>
+                <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 77px;" aria-label="Last name: activate to sort column ascending">Price</th>
                 <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 77px;" aria-label="Last name: activate to sort column ascending">Status</th>
+                <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 77px;" aria-label="Last name: activate to sort column ascending">Product Desc</th>
+
+
                 <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 77px;" aria-label="Last name: activate to sort column ascending"></th>
                 <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 77px;" aria-label="Last name: activate to sort column ascending"></th>
 
@@ -36,22 +41,30 @@
             </tr>
             </thead>
           <tbody>
-              @foreach ($productcategory as $procat )
+              @foreach ($product as $procat )
 
 
           <tr role="row">
 
-          <td>{{$procat->brand_name}}</td>
+          <td>{{$procat->category->brand_name}}</td>
+          <td>{{$procat->product_name}}</td>
+          <td>{{$procat->price}}</td>
+
+
+
           <td>{{$procat->status}}</td>
+          <td>{{$procat->product_desc}}</td>
+
+
             <td>
-            <a class="btn btn-app" href="{{route('productcategory.edit',$procat->id)}}">
+            <a class="btn btn-app" href="{{route('product.edit',$procat->id)}}">
                     <i class="fa fa-edit"></i> Edit
                   </a>
 
 
             </td>
             <td>
-                <form method="POST" action="{{route('productcategory.destroy',$procat->id)}}">
+                <form method="POST" action="{{route('product.destroy',$procat->id)}}">
                     @csrf
                     @method('delete')
                   <button class="btn btn-app">

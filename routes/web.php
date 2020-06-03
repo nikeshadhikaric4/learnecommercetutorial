@@ -29,5 +29,19 @@ Route::get('/dashboard', 'BackendController@index')->name('backend.index');
 
 Route::resource('/dashboard/productcategory','ProductCategoryController');
 
+Route::resource('/dashboard/product','ProductController');
+
+
+
+
+
+
+
+
+
+
+
+
+
 Route::resource('/dashboard/document','DocumentController');
 

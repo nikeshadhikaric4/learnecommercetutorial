@@ -11,10 +11,12 @@ class Product extends Model
         'price',
         'slug',
         'status',
-        'category_id'
+        'category_id',
+        'product_desc'
+
     ];
 
-    public function product_category(){
+    public function category(){
         return $this->belongsTo('App\models\ProductCategory');
     }
 
