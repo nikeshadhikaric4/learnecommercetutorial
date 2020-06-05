@@ -23,65 +23,23 @@
       </div>
       <div class="x_content">
         <br>
-      <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" method="POST" action="{{route('product.store')}}">
+      <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" enctype="multipart/form-data" method="POST" action="{{route('productImage.store')}}">
         @csrf
 
 
 
           <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Product Category<span class="required">*</span>
+            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Product<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 ">
-
-            <select class="form-control" name="product_category">
-                @foreach ($productcategory as $procat)
-                <option value="{{$procat->id}}" name="product_category">{{$procat->brand_name}}</option>
+            <select class="form-control" name="product_id">
+                @foreach ($product as $procat)
+                <option value="{{$procat->id}}" name="product_id">{{$procat->product_name}}</option>
 
 
                 @endforeach
-
-
-
-                
-
             </div>
           </div>
-
-
-          <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Product Name<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 ">
-              <input type="text" id="product_name" name="product_name" required="required" class="form-control ">
-            </div>
-          </div>
-
-          <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Price<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 ">
-              <input type="text" id="price" name="price" required="required" class="form-control ">
-            </div>
-          </div>
-
-
-
-          <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Description<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 ">
-                <textarea id="message" required="required" class="form-control" name="product_desc" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10">
-
-                </textarea>
-
-
-            </div>
-          </div>
-
-
-
-
-
 
 
           {{-- <div class="item form-group">
@@ -117,7 +75,27 @@
               <input id="birthday" class="date-picker form-control" required="required" type="text">
             </div>
           </div> --}}
+          <div></div>
           <div class="ln_solid"></div>
+          <div class="item form-group">
+            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Product Name<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 ">
+              <input type="text" id="img_title" name="img_title" placeholder="Image Title" required="required" class="form-control ">
+            </div>
+          </div>
+
+          <div class="item form-group">
+            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Image  Upload<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 ">
+                <input type="file" name="img" id="img" onchange="fileSelected();"/>
+            </div>
+          </div>
+
+
+
+
           <div class="item form-group">
             <div class="col-md-6 col-sm-6 offset-md-3">
               <button class="btn btn-primary" type="button">Cancel</button>
@@ -125,6 +103,7 @@
               <button type="submit" class="btn btn-success">Submit</button>
             </div>
           </div>
+
 
         </form>
       </div>
