@@ -13,7 +13,7 @@ class Payment extends Model
         'status'
     ];
 
-    public function customerDetail(){
+    public function customer(){
         return $this->belongsTo('App\models\CustomerDetail');
     }
 

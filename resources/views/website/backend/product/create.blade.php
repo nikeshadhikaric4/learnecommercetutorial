@@ -36,20 +36,15 @@
             <select class="form-control" name="product_category">
                 @foreach ($productcategory as $procat)
                 <option value="{{$procat->id}}" name="product_category">{{$procat->brand_name}}</option>
-
-
                 @endforeach
-
-
-
-                
-
+            </select>
             </div>
           </div>
 
 
+
           <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Product Name<span class="required">*</span>
+            <label class="col-form-label col-md-3 col-sm-3 label-align" >Product Name
             </label>
             <div class="col-md-6 col-sm-6 ">
               <input type="text" id="product_name" name="product_name" required="required" class="form-control ">

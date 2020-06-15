@@ -3,7 +3,7 @@
 <div class="col-md-12 col-sm-12 ">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Create Product </h2>
+        <h2>Create Payment </h2>
         <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>
@@ -23,40 +23,62 @@
       </div>
       <div class="x_content">
         <br>
-      <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" method="POST" action="{{route('product.store')}}">
+      <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" method="POST" action="{{route('payment.store')}}">
         @csrf
 
 
 
           <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Product Category<span class="required">*</span>
+            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Customer Name<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 ">
 
-            <select class="form-control" name="product_category">
-                @foreach ($productcategory as $procat)
-                <option value="{{$procat->id}}" name="product_category">{{$procat->brand_name}}</option>
+            <select class="form-control" name="customer_id">
+                @foreach ($customerDetail as $procat)
+                <option value="{{$procat->id}}" name="customer_id">{{$procat->f_name}}</option>
 
 
                 @endforeach
 
+            </select>
 
 
-                
+
+
 
             </div>
           </div>
 
 
           <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Product Name<span class="required">*</span>
+            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Total Amount<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 ">
-              <input type="text" id="product_name" name="product_name" required="required" class="form-control ">
+              <input type="text" id="total" name="total" required="required" class="form-control ">
             </div>
           </div>
 
           <div class="item form-group">
+            <label class="col-form-label col-md-3 col-sm-3 label-align" >Payment Type<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 ">
+
+            <select class="form-control" name="payment_type">
+
+                <option value="cash" name="payment_type">Cash on Delivery</option>
+                <option value="card" name="payment_type">Card</option>
+
+
+            </select>
+
+            </div>
+          </div>
+
+
+
+
+
+          {{-- <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Price<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 ">
@@ -76,7 +98,7 @@
 
 
             </div>
-          </div>
+          </div> --}}
 
 
 

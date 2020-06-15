@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\models\CustomerDetail;
 use App\models\Payment;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+        $payment=Payment::all();
+        return view('website.backend.payment.index', compact('payment'));
     }
 
     /**
@@ -24,7 +26,8 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        //
+        $customerDetail=CustomerDetail::all();
+        return view('website.backend.payment.create', compact('customerDetail'));
     }
 
     /**
@@ -35,7 +38,8 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Payment::create($request->all());
+        return redirect()->route('payment.index');
     }
 
     /**
@@ -57,7 +61,8 @@ class PaymentController extends Controller
      */
     public function edit(Payment $payment)
     {
-        //
+        $customerDetail=CustomerDetail::all();
+        return view('website.backend.payment.update', compact('customerDetail','payment'));
     }
 
     /**
@@ -69,7 +74,8 @@ class PaymentController extends Controller
      */
     public function update(Request $request, Payment $payment)
     {
-        //
+        $payment->update($request->all());
+        return redirect()->route('payment.index');
     }
 
     /**
@@ -80,6 +86,10 @@ class PaymentController extends Controller
      */
     public function destroy(Payment $payment)
     {
-        //
+        $payment->delete();
+        return redirect()->route('payment.index');
+
+
+
     }
 }
