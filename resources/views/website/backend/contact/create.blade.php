@@ -3,7 +3,7 @@
 <div class="col-md-12 col-sm-12 ">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Create Product </h2>
+        <h2>Create Contact </h2>
         <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>
@@ -23,54 +23,37 @@
       </div>
       <div class="x_content">
         <br>
-      <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" method="POST" action="{{route('product.store')}}">
+      <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" method="POST" action="{{route('contact.store')}}">
         @csrf
 
 
 
-          <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Product Category<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 ">
 
-            <select class="form-control" name="product_category">
-                @foreach ($productcategory as $procat)
-                <option value="{{$procat->id}}" name="product_category">{{$procat->brand_name}}</option>
-
-
-                @endforeach
-
-
-
-                
-
-            </div>
-          </div>
 
 
           <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Product Name<span class="required">*</span>
+            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Location<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 ">
-              <input type="text" id="product_name" name="product_name" required="required" class="form-control ">
+              <input type="text" id="location" name="location" required="required" class="form-control ">
             </div>
           </div>
 
           <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Price<span class="required">*</span>
+            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Email<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 ">
-              <input type="text" id="price" name="price" required="required" class="form-control ">
+              <input type="email" id="email" name="email" required="required" class="form-control ">
             </div>
           </div>
 
 
 
           <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Description<span class="required">*</span>
+            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Address<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 ">
-                <textarea id="message" required="required" class="form-control" name="product_desc" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10">
+                <textarea id="address" required="required" class="form-control" name="address" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10">
 
                 </textarea>
 
@@ -80,7 +63,13 @@
 
 
 
-
+          <div class="item form-group">
+            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Email<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 ">
+              <input type="text" id="phone" name="phone" required="required" class="form-control ">
+            </div>
+          </div>
 
 
 

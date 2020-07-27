@@ -79,17 +79,23 @@
                     </div>
                 </div>
                 <div class="row">
+                    @foreach ($product as $pro )
+
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-new-pro mb-30 text-center">
                             <div class="product-img">
                                 <img src="assets/img/gallery/new_product1.png" alt="">
                             </div>
                             <div class="product-caption">
-                                <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                <span>$ 45,743</span>
+                            <h3><a href="product_details.html">{{$pro->product_name}}</a></h3>
+                            <span>$ {{$pro->price}}</span>
                             </div>
                         </div>
                     </div>
+
+                    @endforeach
+
+
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-new-pro mb-30 text-center">
                             <div class="product-img">

@@ -18,8 +18,8 @@
           </li>
           <li><a><i class="fa fa-home"></i> Contacts<span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="{{route('productcategory.index')}}">Company Contact</a></li>
-              <li><a href="{{route('product.index')}}">Customer Form</a></li>
+              <li><a href="{{route('contact.index')}}">Company Contact</a></li>
+              <li><a href="{{route('contactForm.index')}}">Customer Form</a></li>
             </ul>
           </li>
 

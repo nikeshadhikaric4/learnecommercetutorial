@@ -13,11 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('website.frontend.layouts.main');
-});
+// Route::get('/', function () {
+//     return view('website.frontend.layouts.main');
+// });
 
 Auth::routes();
+
+Route::get('/', 'FrontendController@index')->name('website.index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -34,8 +36,9 @@ Route::resource('/dashboard/productImage','ProductImageController');
 
 Route::resource('/dashboard/customerDetail','CustomerDetailController');
 Route::resource('/dashboard/payment','PaymentController');
-Route::resource('/dashboard/contact','ProductImageController');
-Route::resource('/dashboard/contactForm','ProductImageController');
+
+Route::resource('/dashboard/contact','ContactController');
+Route::resource('/dashboard/contactForm','ContactFormController');
 
 
 

@@ -14,7 +14,8 @@ class ContactFormController extends Controller
      */
     public function index()
     {
-        //
+        $contactForm=ContactForm::all();
+        return view('website.backend.contactform.index', compact('contactForm'));
     }
 
     /**
@@ -24,7 +25,8 @@ class ContactFormController extends Controller
      */
     public function create()
     {
-        //
+        return view('website.backend.contactform.create');
+
     }
 
     /**
@@ -35,7 +37,7 @@ class ContactFormController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ContactForm::create($request->all());
     }
 
     /**
@@ -57,7 +59,9 @@ class ContactFormController extends Controller
      */
     public function edit(ContactForm $contactForm)
     {
-        //
+        return view('website.backend.contactform.update', compact('contactForm'));
+
+
     }
 
     /**
