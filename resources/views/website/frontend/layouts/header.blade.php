@@ -49,7 +49,7 @@
                                 </div>
                             </li>
                             <li> <a href="login.html"><span class="flaticon-user"></span></a></li>
-                            <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>
+                        <li><a href="{{route('website.cart')}}"><span class="flaticon-shopping-cart">{{Session::has('cart') ? Session::get('cart')->totalQty: ''}}</span></a></li>
                         </ul>
                     </div>
                 </div>

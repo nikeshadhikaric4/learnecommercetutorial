@@ -79,16 +79,16 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach ($product as $pro )
+                    @foreach ($productImage as $pro )
 
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-new-pro mb-30 text-center">
                             <div class="product-img">
-                                <img src="assets/img/gallery/new_product1.png" alt="">
+                                <img src="{{asset('images/'.$pro->img)}}" alt="">
                             </div>
                             <div class="product-caption">
-                            <h3><a href="product_details.html">{{$pro->product_name}}</a></h3>
-                            <span>$ {{$pro->price}}</span>
+                            <h3><a href="product_details.html">{{$pro->product->product_name}}</a></h3>
+                            <span>$ {{$pro->product->price}}</span>
                             </div>
                         </div>
                     </div>
@@ -96,28 +96,7 @@
                     @endforeach
 
 
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-new-pro mb-30 text-center">
-                            <div class="product-img">
-                                <img src="assets/img/gallery/new_product2.png" alt="">
-                            </div>
-                            <div class="product-caption">
-                                <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                <span>$ 45,743</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-new-pro mb-30 text-center">
-                            <div class="product-img">
-                                <img src="assets/img/gallery/new_product3.png" alt="">
-                            </div>
-                            <div class="product-caption">
-                                <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                <span>$ 45,743</span>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>
@@ -168,24 +147,34 @@
                     </div>
                 </div>
                 <div class="row">
+
+            @foreach ($popular as $pop )
+
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
                             <div class="popular-img">
-                                <img src="assets/img/gallery/popular1.png" alt="">
+                                <img src="{{asset('images/'.$pop->img)}}" alt="">
                                 <div class="img-cap">
-                                    <span>Add to cart</span>
+                                   <a href="{{route('website.addCart',$pop->id)}}"> <span>Add to cart</span></a>
                                 </div>
+
                                 <div class="favorit-items">
                                     <span class="flaticon-heart"></span>
                                 </div>
+
                             </div>
                             <div class="popular-caption">
-                                <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                <span>$ 45,743</span>
+                            <h3><a href="{{route('website.addCart',$pop->id)}}">{{$pop->product->product_name}}</a></h3>
+                                <span>$ {{$pop->product->price}}</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+
+                    @endforeach
+
+
+
+                    {{-- <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
                             <div class="popular-img">
                                 <img src="assets/img/gallery/popular2.png" alt="">
@@ -269,7 +258,9 @@
                                 <span>$ 45,743</span>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
+
+
                 </div>
                 <!-- Button -->
                 <div class="row justify-content-center">
