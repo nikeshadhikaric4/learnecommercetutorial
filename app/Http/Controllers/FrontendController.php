@@ -76,6 +76,7 @@ class FrontendController extends Controller
             'district'=>$request->district,
             'post_code'=>$request->post_code,
             'other_notes'=>$request->other_notes
+            
         ]);
 
         $customerDetail=CustomerDetail::orderBy('created_at')->first();
