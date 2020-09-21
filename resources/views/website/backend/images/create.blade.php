@@ -42,7 +42,7 @@
           <div></div>
           <div class="ln_solid"></div>
           <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Product Name<span class="required">*</span>
+            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Image Title<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 ">
               <input type="text" id="img_title" name="img_title" placeholder="Image Title" required="required" class="form-control ">
@@ -53,7 +53,7 @@
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Image  Upload<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 ">
-                <input type="file" name="img" id="img" onchange="fileSelected();"/>
+                <input type="file" name="image" id="image" onchange="fileSelected();"/>
             </div>
           </div>
 

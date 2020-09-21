@@ -14,7 +14,8 @@ class ImageController extends Controller
      */
     public function index()
     {
-        //
+        $image=Image::all();
+        return view('website.backend.images.index', compact('image'));
     }
 
     /**
@@ -35,7 +36,17 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd('jere');
+        $image = time().'.'.$request->image->extension();
+
+        $request->image->move(public_path('images'), $image);
+
+          $storeImage = Image::updateOrCreate(['id' => $request->id], [
+                    'img_name' => $request->img_name,
+                    'image' => $image
+                  ]);
+
+          return response()->json(['code'=>200, 'message'=>' Created successfully','data' => $storeImage], 200);
     }
 
     /**
@@ -46,7 +57,9 @@ class ImageController extends Controller
      */
     public function show(Image $image)
     {
-        //
+
+
+        return response()->json($image);
     }
 
     /**
@@ -80,6 +93,8 @@ class ImageController extends Controller
      */
     public function destroy(Image $image)
     {
-        //
+        $image->delete();
+        return response()->json(['success'=>'Deleted successfully']);
+
     }
 }

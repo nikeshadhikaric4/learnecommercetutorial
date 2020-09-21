@@ -23,6 +23,8 @@
             </ul>
           </li>
 
+          <li><a href="{{route('image.index')}}"><i class="fa fa-image"></i>Image</a></li>
+
 
         {{-- <li><a href="{{route('product.index')}}"><i class="fa fa-bolt"></i> Product</a>
         </li> --}}

@@ -3,7 +3,7 @@
 namespace App;
 
 
-class Cart 
+class Cart
 {
     public $items=[];
     public $totalQty=0;
@@ -30,7 +30,7 @@ class Cart
 
         $this->items[$id]= $storedItem;
         $this->totalQty++;
-        $this->totalPrice +=$item->price;
+        $this->totalPrice +=$item->price;    
     }
 
 

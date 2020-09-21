@@ -33,12 +33,13 @@ class FrontendController extends Controller
      public function addToCart(Request $request, $id){
          $product=Product::find($id);
          $oldCart =Session::has('cart') ? Session::get('cart') : null;
+
          $cart=new Cart($oldCart);
          $cart->add($product,$product->id);
 
          $request->session()->put('cart', $cart);
-        //  dd($request->session()->get('cart'));
 
+        //  dd($request->session()->get('cart'));
          return redirect()->route('website.index');
 
      }
@@ -49,6 +50,11 @@ class FrontendController extends Controller
          }
          $oldCart=Session::get('cart');
          $cart=new Cart($oldCart);
+        //  $products=$cart->items;
+        //  $totalPrice=$cart->totalPrice;
+        //  return view('website.frontend.shop.shopping-cart',compact('products','totalPrice'));
+
+
 
          return view('website.frontend.shop.shopping-cart',['products'=>$cart->items,'totalPrice'=>$cart->totalPrice]);
      }
@@ -76,7 +82,7 @@ class FrontendController extends Controller
             'district'=>$request->district,
             'post_code'=>$request->post_code,
             'other_notes'=>$request->other_notes
-            
+
         ]);
 
         $customerDetail=CustomerDetail::orderBy('created_at')->first();
